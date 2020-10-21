@@ -2,7 +2,7 @@
 
 [Realar](https://github.com/betula/realar) shared state demonstration.
 
-<img alt="demo video" src="./video.gif" width="208" height="108">
+[<img alt="demo video" src="./preview.gif" width="208" height="108">](./src/app.js)
 
 ```javascript
 import React from "react";
