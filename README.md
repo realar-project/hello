@@ -5,6 +5,9 @@
 <img alt="demo video" src="./video.gif" width="300" height="150">
 
 ```javascript
+import React from "react";
+import { unit, useShared } from "realar";
+
 const Hello = unit({
   name: "",             // Immutable state
   setName(name) {
@@ -14,8 +17,31 @@ const Hello = unit({
 
 const Header = () => {
   const { name } = useShared(Hello);
-  // ...
+  return (
+    <header>
+      Hello {name || "there"}!
+    </header>
+  )
 };
+
+const Main = () => {
+  const { name, setName } = useShared(Hello);
+  return (
+    <main>
+      <input
+        placeholder="Your name"
+        value={name}
+        onChange={(ev) => setName(ev.target.value)} />
+    </main>
+  )
+};
+
+export const App = () => (
+  <>
+    <Header />
+    <Main />
+  </>
+);
 ```
 
 Try It on your computer :blush:
