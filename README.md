@@ -6,26 +6,28 @@
 
 ```javascript
 import React from "react";
-import { unit, useShared } from "realar";
+import { box, observe, shared } from "realar";
 
-const Hello = unit({
-  name: "",             // Immutable state
-  setName(name) {
+class Hello {
+  @box name = "";       // Init immutable state
+  setName = (name: string) => {
     this.name = name;   // Update immutable state
   }
-});
+};
 
-const Header = () => {
-  const { name } = useShared(Hello);
+const sharedHello = () => shared(Hello);
+
+const Header = observe(() => {
+  const { name } = sharedHello();
   return (
     <header>
       Hello {name || "there"}!
     </header>
   )
-};
+});
 
-const Main = () => {
-  const { name, setName } = useShared(Hello);
+const Main = observe(() => {
+  const { name, setName } = sharedHello();
   return (
     <main>
       <input
@@ -34,7 +36,7 @@ const Main = () => {
         onChange={(ev) => setName(ev.target.value)} />
     </main>
   )
-};
+});
 
 export const App = () => (
   <>
@@ -44,7 +46,9 @@ export const App = () => (
 );
 ```
 
-Try It on your computer :blush:
+[Edit on CodeSandbox](https://codesandbox.io/s/realar-hello-example-w5b33?file=/src/App.tsx)
+
+Or try It on your computer :blush:
 
 ```bash
 git clone git@github.com:realar-project/hello.git
