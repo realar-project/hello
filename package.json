@@ -14,7 +14,7 @@
   "dependencies": {
     "react": "17.0.1",
     "react-dom": "17.0.1",
-    "realar": ">=0.3.3"
+    "realar": "0.3.4"
   },
   "devDependencies": {
     "@babel/core": "7.12.10",
