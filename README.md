@@ -6,10 +6,11 @@
 
 ```javascript
 import React from "react";
-import { box, observe, shared } from "realar";
+import { box, shared } from "realar";
 
 class Hello {
   @box name = "";       // Init immutable state
+
   setName = (name: string) => {
     this.name = name;   // Update immutable state
   }
@@ -17,16 +18,16 @@ class Hello {
 
 const sharedHello = () => shared(Hello);
 
-const Header = observe(() => {
+const Header = () => {
   const { name } = sharedHello();
   return (
     <header>
       Hello {name || "there"}!
     </header>
   )
-});
+};
 
-const Main = observe(() => {
+const Main = () => {
   const { name, setName } = sharedHello();
   return (
     <main>
@@ -36,7 +37,7 @@ const Main = observe(() => {
         onChange={(ev) => setName(ev.target.value)} />
     </main>
   )
-});
+};
 
 export const App = () => (
   <>
@@ -46,7 +47,7 @@ export const App = () => (
 );
 ```
 
-[Edit on CodeSandbox](https://codesandbox.io/s/realar-hello-example-w5b33?file=/src/App.tsx).
+[Edit wrapped version on CodeSandbox](https://codesandbox.io/s/realar-hello-example-w5b33?file=/src/App.tsx).
 
 Or try It on your computer :blush:
 

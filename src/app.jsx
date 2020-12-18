@@ -1,25 +1,26 @@
 import React from "react";
-import { box, observe, shared } from "realar";
+import { box, shared } from "realar";
 
 class Hello {
   @box name = "";       // Init immutable state
-  setName = (name: string) => {
+
+  setName = (name) => {
     this.name = name;   // Update immutable state
   }
 };
 
 const sharedHello = () => shared(Hello);
 
-const Header = observe(() => {
+const Header = () => {
   const { name } = sharedHello();
   return (
     <header>
       Hello {name || "there"}!
     </header>
   )
-});
+};
 
-const Main = observe(() => {
+const Main = () => {
   const { name, setName } = sharedHello();
   return (
     <main>
@@ -29,7 +30,7 @@ const Main = observe(() => {
         onChange={(ev) => setName(ev.target.value)} />
     </main>
   )
-});
+};
 
 export const App = () => (
   <>
