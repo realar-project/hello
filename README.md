@@ -46,7 +46,7 @@ export const App = () => (
 );
 ```
 
-[Edit on CodeSandbox](https://codesandbox.io/s/realar-hello-example-w5b33?file=/src/App.tsx)
+[Edit on CodeSandbox](https://codesandbox.io/s/realar-hello-example-w5b33?file=/src/App.tsx).
 
 Or try It on your computer :blush:
 
