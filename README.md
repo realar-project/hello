@@ -6,10 +6,10 @@
 
 ```javascript
 import React from "react";
-import { box, shared } from "realar";
+import { prop, shared } from "realar";
 
 class Hello {
-  @box name = "";       // Init immutable state
+  @prop name = "";      // Init immutable state
 
   setName = (name: string) => {
     this.name = name;   // Update immutable state
