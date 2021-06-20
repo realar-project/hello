@@ -4,13 +4,13 @@
 
 [<img alt="demo video" src="./preview.gif" width="208" height="108">](./src/app.js)
 
-```javascript
+```typescript
 import React from "react";
 import { prop, shared } from "realar";
 
 class Hello {
   // Init immutable state
-  @prop name = "";
+  @prop name = ""
 
   // Update immutable state
   setName = (name: string) => {
