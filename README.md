@@ -9,10 +9,10 @@ import React from "react";
 import { prop, shared } from "realar";
 
 class Hello {
-  @prop name = ""                 // Init immutable state
+  @prop name = ""           // Init immutable state
 
-  setName = (name: string) => {   // Update immutable state
-    this.name = name;
+  setName = (name: string) => {
+    this.name = name;       // Update immutable state
   }
 };
 
